@@ -1,7 +1,7 @@
-import Link from "next/link";
 import React from "react";
 
-export default function ServicesPage() {
+export default function ServicesDetail({ params }) {
+  const id = params.id;
   const serviceData = [
     {
       _id: "srv-001",
@@ -51,16 +51,13 @@ export default function ServicesPage() {
     },
   ];
 
+  const data =serviceData.find(d=>d._id == id)
   return (
     <div>
-      <p>Service</p>
-      {serviceData.map((d) => (
-        <Link href={`/services/${d._id}`} key={d._id}>
-          <div>
-            <img src={d.image} />
-          </div>
-        </Link>
-      ))}
+      <h1>Services details</h1>
+      <p>id:{id}</p>
+      <h1>{data.title}</h1>
+      <img src={data.image}></img>
     </div>
   );
 }
