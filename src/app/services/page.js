@@ -12,27 +12,11 @@ export default function ServicesPage() {
         "https://images.unsplash.com/photo-1483721310020-03333e577078?auto=format&fit=crop&w=800&q=80",
     },
     {
-      _id: "srv-002",
-      title: "Secure Packaging",
-      description:
-        "We package your items securely to avoid any damage during transit.",
-      image:
-        "https://images.unsplash.com/photo-1518349619113-ebb92d7c5ce9?auto=format&fit=crop&w=800&q=80",
-    },
-    {
       _id: "srv-003",
       title: "Real-Time Tracking",
       description: "Track your parcel live via website or mobile app.",
       image:
         "https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=800&q=80",
-    },
-    {
-      _id: "srv-004",
-      title: "24/7 Support",
-      description:
-        "Customer support available round the clock for your assistance.",
-      image:
-        "https://images.unsplash.com/photo-1521790365268-5e2b8c2a1a6c?auto=format&fit=crop&w=800&q=80",
     },
     {
       _id: "srv-005",
@@ -54,13 +38,15 @@ export default function ServicesPage() {
   return (
     <div>
       <p>Service</p>
-      {serviceData.map((d) => (
-        <Link href={`/services/${d._id}`} key={d._id}>
-          <div>
-            <img src={d.image} />
+      <div className="flex items-center gap-5 m-5">
+        {serviceData.map((d) => (
+          <div key={d._id}>
+            <Link href={`/services/${d._id}`}>
+              <img className="h-56" src={d.image} />
+            </Link>
           </div>
-        </Link>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }
