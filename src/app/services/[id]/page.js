@@ -52,17 +52,22 @@ export default function ServicesDetail({ params }) {
   ];
 
   const data = serviceData.find((d) => d._id == id);
-  return (
-    <div>
-      <h1>Services details</h1>
-      <div className="flex items-center gap-5">
-        <div>
-          <p>id:{id}</p>
-          <h1>Titel: {data.title}</h1>
-          <h2>Description: {data.description}</h2>
+  if (data) {
+    return (
+      <div>
+        <h1>Services details</h1>
+        <div className="flex items-center gap-5">
+          <div>
+            <p>id:{id}</p>
+            <h1>Titel: {data.title}</h1>
+            <h2>Description: {data.description}</h2>
+          </div>
+          <img className="h-96" src={data.image}></img>
         </div>
-        <img className="h-96" src={data.image}></img>
       </div>
-    </div>
-  );
+    );
+  }
+  else{
+    return "Not Service Found "
+  }
 }
